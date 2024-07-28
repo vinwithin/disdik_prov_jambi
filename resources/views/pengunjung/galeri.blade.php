@@ -78,42 +78,39 @@
         <a href="#" class="text-danger"><i class="fab fa-youtube"></i></a>
     </div>
     <div class="title text-center py-4">
-        <h1>Berita Terkini</h1>
-        <h4>Dapatkan Informasi Terkait Semua Kegiatan yang Dilakukan di Dinas Pendidikan Provinsi Jambi</h4>
+        <h1>Galeri Foto</h1>
     </div>
 
-    <div class="container-fluid bg-white mt-5">
+    <div class="container-fluid bg-white">
         <div class="container pb-4">
             <div class="row text-dark" style="box-shadow: 2px 4px 40px 0px #143E9A;">
-                <div class="col-lg-8">
+                <div class="col-lg-4">
+                    <div class="news-item">
+                        <img src="path-to-your-image.jpg" alt="News Image">                      
+                    </div>
+                    <h5 class="text-center">Mahasiswa Magang</h5>
+                    <!-- Repeat the .news-item block for each news item -->
+                </div>
+                <div class="col-lg-4">
                     <div class="news-item">
                         <img src="path-to-your-image.jpg" alt="News Image">
-                        <h5>Mahasiswa Magang</h5>
-                        <div>
-                            <span>Kategori Berita</span> | <span>8 Juli 2024</span> | <span>2 min</span> | <span>959
-                                Views</span>
-                        </div>
-                        <p>
-                            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-                            deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
-                            provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et
-                            dolorum
-                            fuga. Et harum quidem rerum facilis est et expedita distinctio.
-                        </p>
-                        <a href="#">Baca Selengkapnya...</a>
+                        
                     </div>
+                    <h5 class="text-center">Mahasiswa Magang</h5>
                     <!-- Repeat the .news-item block for each news item -->
                 </div>
                 <div class="col-lg-4">
                     <div class="news-sidebar">
-                        <div class="search-box">
-                            <input type="text" class="form-control" placeholder="Cari Berita...">
-                        </div>
-                        <h5>Rilis Berita</h5>
-                        <div class="news-link">
-                            <img src="path-to-your-image.jpg" alt="News Image">
-                            <a href="#">Mahasiswa Magang</a>
-                        </div>
+                        <h5>Berita Baru</h5>
+                            <div class="border-bottom">
+                                <strong>Mahasiswa Magang</strong>
+                                <p>Lorem ipsum</p>
+                            </div>
+                            <div class="border-bottom">
+                                <strong>Mahasiswa Magang</strong>
+                                <p>Lorem ipsum</p>
+                            </div>
+                        
                         <!-- Repeat the .news-link block for each news link -->
                     </div>
                 </div>

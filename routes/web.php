@@ -20,3 +20,9 @@ Route::get('/sekretariat', function() {
 Route::get('/berita', function() {
     return view('pengunjung.berita');
 });
+Route::get('/pengumuman', function() {
+    return view('pengunjung.pengumuman');
+});
+Route::get('/galeri-foto', function() {
+    return view('pengunjung.galeri');
+});
