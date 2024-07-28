@@ -43,8 +43,8 @@
         }
     </style>
     <div class="container-fluid bg-white m-0">
-        <div class="container">
-            <div class="row mt-5">
+        <div class="container py-5">
+            <div class="row">
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">

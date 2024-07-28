@@ -14,3 +14,9 @@ Route::get('/sambutan', function() {
 Route::get('/visi-misi', function() {
     return view('pengunjung.visimisi');
 });
+Route::get('/sekretariat', function() {
+    return view('pengunjung.sekretariat');
+});
+Route::get('/berita', function() {
+    return view('pengunjung.berita');
+});
