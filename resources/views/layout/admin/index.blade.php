@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Mazer Admin Dashboard</title>
+    <title>Dashboard - Admin Dashboard</title>
 
 
 
@@ -29,7 +29,7 @@
                 <div class="sidebar-header position-relative">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="logo">
-                            <a href="/" class="fs-5">SIAKRAB</a>
+                            <a href="/" class="fs-6">DISDIK</a>
                         </div><br>
                         <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -67,16 +67,16 @@
                         </div>
                     </div>
                 </div>
-                @include('components/layouts/admin/sidebar')
+                @include('layout/admin/sidebar')
             </div>
         </div>
         <div id="main">
-            @include('components/layouts/admin/navbar')
+            @include('layout/admin/navbar')
 
             
             @yield('content')
 
-            @include('components/layouts/admin/footer')
+            @include('layout/admin/footer')
 
             
 

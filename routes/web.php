@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\beritaController;
+use App\Http\Controllers\dashboardController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,4 +27,12 @@ Route::get('/pengumuman', function() {
 });
 Route::get('/galeri-foto', function() {
     return view('pengunjung.galeri');
+});
+
+Route::prefix('admin')->group(function(){
+    Route::get('/', [dashboardController::class, 'index']);
+    Route::get('/berita' ,[beritaController::class, 'index']);
+    Route::get('/berita/add-berita' ,[beritaController::class, 'addberita']);
+    Route::post('/berita' ,[beritaController::class, 'store']);
+
 });
