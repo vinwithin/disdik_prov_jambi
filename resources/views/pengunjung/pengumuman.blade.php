@@ -82,41 +82,46 @@
     </div>
 
     <div class="container-fluid bg-white">
+        
         <div class="container pb-4">
             <div class="row text-dark" style="box-shadow: 2px 4px 40px 0px #143E9A;">
-                <div class="search-bar bg-white">
-                    <div class="container">
-                        <input type="text" placeholder="Cari Pengumuman" >
-                        <select>
-                            <option value="">Kategori</option>
+                <p>Beranda > Pengumuman</p>
+                <div class="row g-2 mb-4">
+                    <div class="col-md">
+                      <div class="form-floating">
+                        <input type="email" class="form-control" id="floatingInputGrid" placeholder="name@example.com" value="mdo@example.com">
+                        <label for="floatingInputGrid">Email address</label>
+                      </div>
+                    </div>
+                    <div class="col-md">
+                      <div class="form-floating">
+                        <select class="form-select" id="floatingSelectGrid">
+                          <option selected>Open this select menu</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
                         </select>
-                        <button>Reset</button>
+                        <label for="floatingSelectGrid">Works with selects</label>
+                      </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <h5>Mahasiswa Magang</h5>
+                  </div>
+                @foreach ($pengumuman as $item)
+                    <div class="col-lg-6">
+                        <h5>{{$item->title}}</h5>
                         <div>
-                            <span>Kategori Berita</span> | <span>8 Juli 2024</span> | <span>2 min</span> | <span>959
-                                Views</span>
+                            <span>{{$item->created_at}}</span> | <span>2 min</span> | 
                         </div>
-                    <div class="news-item">
-                        <img src="path-to-your-image.jpg" alt="News Image">
+                        <a href="">Pratinjau Dokumen</a>
                         
-                    </div>
-                    <!-- Repeat the .news-item block for each news item -->
-                </div>
-                <div class="col-lg-6">
-                    <h5>Mahasiswa Magang</h5>
-                        <div>
-                            <span>Kategori Berita</span> | <span>8 Juli 2024</span> | <span>2 min</span> | <span>959
-                                Views</span>
+                        <div class="news-item">
+                            <img src="/storage/pengumuman/{{ $item->gambar_pengumuman }}" alt="News Image">
+
                         </div>
-                    <div class="news-item">
-                        <img src="path-to-your-image.jpg" alt="News Image">
-                        
+                        <!-- Repeat the .news-item block for each news item -->
                     </div>
-                    <!-- Repeat the .news-item block for each news item -->
-                </div>
+                @endforeach
+
+
             </div>
         </div>
     </div>

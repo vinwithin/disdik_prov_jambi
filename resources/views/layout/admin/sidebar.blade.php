@@ -18,32 +18,26 @@
                     <a href="/admin/berita" class="submenu-link">Berita</a>
                 </li>
                 <li class="submenu-item  ">
-                    <a href="/admin/kegiatan" class="submenu-link">Kegiatan</a>
+                    <a href="/admin/pengumuman" class="submenu-link">Pengumuman</a>
                 </li>
             </ul>
         </li>
-        <li class="sidebar-item  has-sub {{ Request::is('admin/surat*') ? 'active' : '' }}">
+        <li class="sidebar-item  has-sub {{ Request::is('admin/program*') ? 'active' : '' }}">
             <a href="#" class='sidebar-link'>
                 <i class="bi bi-collection-fill"></i>
-                <span>Kelola Surat</span>
+                <span>Program</span>
             </a>
             <ul class="submenu ">
                 <li class="submenu-item  ">
-                    <a href="/admin/surat" class="submenu-link">Daftar Surat</a>
+                    <a href="/admin/program" class="submenu-link">Program</a>
                 </li>
-                <li class="submenu-item  ">
-                    <a href="/admin/surat/diterima" class="submenu-link">Surat Diterima</a>
-                </li>
-                <li class="submenu-item  ">
-                    <a href="/admin/surat/ditolak" class="submenu-link">Surat Ditolak</a>
-
-                </li>
+                
             </ul>
         </li>
         <li class="sidebar-item  has-sub {{ Request::is('admin/aduan*') ? 'active' : '' }}">
             <a href="#" class='sidebar-link'>
                 <i class="bi bi-grid-1x2-fill"></i>
-                <span>Kelola Aduan</span>
+                <span>Galeri</span>
             </a>
             <ul class="submenu ">
                 <li class="submenu-item  ">

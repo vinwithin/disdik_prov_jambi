@@ -23,21 +23,21 @@ class beritaController extends Controller
             [
                 'title' => 'required',
                 'body' => 'required',
-                'image_berita' => 'required|image|mimes:png,jpg,jpeg|max:2024',
-                
+                'gambar' => 'required|image|mimes:png,jpg,jpeg|max:2024',
+                'slide' => 'required'                
             ]
         );
-        $validateData["user_id"] = auth()->user()->id;
+        $validateData["user_id"] = 1;
         $validateData['slug'] = 'require|unique:berita';
         $validateData["slug"] = Str::slug($request->title, '-');
         $validateData["excerpt"] = Str::limit(strip_tags($request->body), 300);
-        $image_name = time() . '_' . $request->image_berita->getClientOriginalName();
+        $image_name = time() . '_' . $request->gambar->getClientOriginalName();
         // $request->image_berita->storeAs('public/media/berita/thumbnails', $image_name);
-        $validateData['image_berita'] = $image_name;
+        $validateData['gambar'] = $image_name;
 
         $result = Berita::create($validateData);
         
-        $request->image_berita->storeAs('public', $image_name);
+        $request->gambar->storeAs('public/berita', $image_name);
         if ($result) {
             return redirect('/admin/berita')->with('success', 'berhasil menambahkan data');
         } else {
@@ -45,22 +45,28 @@ class beritaController extends Controller
         }
     }
 
-    public function update(Request $request){
+    public function edit(Berita $berita){
+        $berita = Berita::find($berita->id);
+        return view('admin.berita.edit-berita', ['berita' => $berita]);
+    }
+    public function update(Request $request, Berita $berita){
         $validateData = $request->validate([
             'title' => 'required',
             'body' => 'required',
-            'image_berita' => 'required|image|mimes:png,jpg,jpeg|max:2024',
+            'gambar' => 'required|image|mimes:png,jpg,jpeg|max:2024',
+            'slide' => 'required' 
             
         ]);
+        $validateData["user_id"] = 1;
         $validateData["slug"] = Str::slug($request->title, '-');
         $validateData["excerpt"] =  Str::limit(strip_tags($request->body), 300);
-        $imageName = time() . '_' . $request->image_berita->getClientOriginalName();
-        $validateData['image_berita'] = $imageName;
+        $imageName = time() . '_' . $request->gambar->getClientOriginalName();
+        $validateData['gambar'] = $imageName;
 
-        $result = Berita::where('id', $request->id)
+        $result = Berita::where('id', $berita->id)
                   ->update($validateData);
         if ($result) {
-            $request->image_berita->storeAs('public', $imageName);
+            $request->gambar->storeAs('public', $imageName);
             return redirect('/admin/berita')->with('success', 'berhasil mengubah data');
         } else {
             return redirect('/admin/berita/edit-berita')->with("error", "Gagal mengubah data!");
@@ -71,5 +77,10 @@ class beritaController extends Controller
     public function destroy(Berita $berita){
         Berita::where('id', $berita->id)->delete(); 
         return redirect('/admin/berita')->with('success', 'Berita Berhasil Dihapus!');
+    }
+
+    public function detail(Berita $berita){
+        $berita = Berita::find($berita->id);
+        return view('admin.berita.detail-berita', ['berita' => $berita]);
     }
 }
