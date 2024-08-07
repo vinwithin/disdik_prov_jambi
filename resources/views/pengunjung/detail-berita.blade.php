@@ -77,13 +77,14 @@
         <a href="#" class="text-info"><i class="fab fa-twitter"></i></a>
         <a href="#" class="text-danger"><i class="fab fa-youtube"></i></a>
     </div>
-    <div class="title text-center py-4">
+    <div class="title text-center py-4" style="margin-bottom: 90px;">
         <h1>Berita Terkini</h1>
         <h4>Dapatkan Informasi Terkait Semua Kegiatan yang Dilakukan di Dinas Pendidikan Provinsi Jambi</h4>
     </div>
 
     <div class="container-fluid bg-white mt-5">
-        <div class="container pb-4">
+        <div class="container pb-4" style="top:-50px; position:relative; border-radius: 20px;
+            background: #FFF; ">
             <div class="row text-dark" style="box-shadow: 2px 4px 40px 0px #143E9A;">
                 <div class="col-lg-8">
                     <div class="news-item">

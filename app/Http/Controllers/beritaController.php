@@ -34,6 +34,8 @@ class beritaController extends Controller
         $image_name = time() . '_' . $request->gambar->getClientOriginalName();
         // $request->image_berita->storeAs('public/media/berita/thumbnails', $image_name);
         $validateData['gambar'] = $image_name;
+        $validateData['path'] = '/storage/berita/' . $image_name;
+
 
         $result = Berita::create($validateData);
         
@@ -62,11 +64,13 @@ class beritaController extends Controller
         $validateData["excerpt"] =  Str::limit(strip_tags($request->body), 300);
         $imageName = time() . '_' . $request->gambar->getClientOriginalName();
         $validateData['gambar'] = $imageName;
+        $validateData['path'] = '/storage/berita/' . $imageName;
+
 
         $result = Berita::where('id', $berita->id)
                   ->update($validateData);
         if ($result) {
-            $request->gambar->storeAs('public', $imageName);
+            $request->gambar->storeAs('public/berita', $imageName);
             return redirect('/admin/berita')->with('success', 'berhasil mengubah data');
         } else {
             return redirect('/admin/berita/edit-berita')->with("error", "Gagal mengubah data!");

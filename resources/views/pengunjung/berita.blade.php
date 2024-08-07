@@ -33,7 +33,8 @@
             background: #FFF;
             box-shadow: 0px 4px 4px 0px #0D47A1;
             padding: 20px;
-            max-height: 350px;
+            max-height: 550px;
+            margin-top: 20px;
             margin-bottom: 20px;
         }
 
@@ -79,29 +80,15 @@
         <a href="#" class="text-info"><i class="fab fa-twitter"></i></a>
         <a href="#" class="text-danger"><i class="fab fa-youtube"></i></a>
     </div>
-    <div class="title text-center py-4">
+    <div class="title text-center py-4 " style="margin-bottom: 90px;">
         <h1>Berita Terkini</h1>
         <h4>Dapatkan Informasi Terkait Semua Kegiatan yang Dilakukan di Dinas Pendidikan Provinsi Jambi</h4>
     </div>
 
-    <div class="container-fluid bg-white mt-5">
-        <div class="container pb-4">
-            {{-- <div class="row text-dark" style="box-shadow: 2px 4px 40px 0px #143E9A;">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="..." class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-        </div> --}}
-            <div class="row text-dark" style="box-shadow: 2px 4px 40px 0px #143E9A;">
+    <div class="container-fluid bg-white mt-5" style="" >
+        <div class="container pb-4 "  style="top:-50px; position:relative; border-radius: 20px;
+            background: #FFF; ">
+            <div class="row text-dark" style="box-shadow: 2px 4px 40px 0px #143E9A;   ">
                 <div class="col-lg-8">
                     @foreach ($berita as $item)
                         <div class="news-item">
@@ -109,7 +96,7 @@
                                 <div class="col-lg-4">
                                     <img src="/storage/berita/{{ $item->gambar }}" alt="News Image" style="height: 250px">
                                 </div>
-                                <div class="col-lg-8">
+                                <div class="col-lg-8" >
                                     <h5 class="fs-3">{{ $item->title }}</h5>
                                     <div>
                                         <span>Kategori Berita</span> | <span>8 Juli 2024</span> | <span>2 min</span> |
@@ -125,6 +112,7 @@
 
                         </div>
                     @endforeach
+
 
                     <!-- Repeat the .news-item block for each news item -->
                 </div>
@@ -147,7 +135,11 @@
                         <!-- Repeat the .news-link block for each news link -->
                     </div>
                 </div>
+            {{ $berita->links() }}
+
             </div>
+
         </div>
+
     </div>
 @endsection

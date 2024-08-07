@@ -1,7 +1,7 @@
 @extends('layout/admin/index')
 @section('content')
     <div>
-        <div class="card p-4 d-flex text-center justify-content-center align-items-center">
+        <div class="card p-4 d-flex ">
             <h1>{{ $program->title }}</h1>
             {!! $program->body !!}
 

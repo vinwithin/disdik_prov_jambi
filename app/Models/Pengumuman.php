@@ -16,7 +16,6 @@ class Pengumuman extends Model
         'slug',
         'excerpt',
         'body',
-        'gambar_pengumuman',
         'dokumen',
     ];
    

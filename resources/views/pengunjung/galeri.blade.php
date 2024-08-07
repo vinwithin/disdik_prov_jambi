@@ -77,39 +77,39 @@
         <a href="#" class="text-info"><i class="fab fa-twitter"></i></a>
         <a href="#" class="text-danger"><i class="fab fa-youtube"></i></a>
     </div>
-    <div class="title text-center py-4">
+    <div class="title text-center py-4" style="margin-bottom: 90px;">
         <h1>Galeri Foto</h1>
     </div>
 
     <div class="container-fluid bg-white">
-        <div class="container pb-4">
+        <div class="container pb-4" style="top:-50px; position:relative; border-radius: 20px;
+            background: #FFF; ">
             <div class="row text-dark" style="box-shadow: 2px 4px 40px 0px #143E9A;">
+                @foreach ($foto as $item)
+                    
                 <div class="col-lg-4">
                     <div class="news-item">
-                        <img src="path-to-your-image.jpg" alt="News Image">                      
+                        <img src="/storage/foto/{{$item->foto}}" alt="News Image" style="height: 290px; width:390px;">                      
                     </div>
-                    <h5 class="text-center">Mahasiswa Magang</h5>
+                    <h5 class="text-center">{{$item->title}}</h5>
                     <!-- Repeat the .news-item block for each news item -->
                 </div>
-                <div class="col-lg-4">
-                    <div class="news-item">
-                        <img src="path-to-your-image.jpg" alt="News Image">
-                        
-                    </div>
-                    <h5 class="text-center">Mahasiswa Magang</h5>
-                    <!-- Repeat the .news-item block for each news item -->
-                </div>
+                @endforeach
+
+
                 <div class="col-lg-4">
                     <div class="news-sidebar">
-                        <h5>Berita Baru</h5>
+                        <h5 class="fw-bold fs-3">Berita Baru</h5>
+                        @foreach ($beritaTerbaru as $item)
+                            
                             <div class="border-bottom">
-                                <strong>Mahasiswa Magang</strong>
-                                <p>Lorem ipsum</p>
+                                <a class="fw-bold text-dark" href="/berita/detail/{{$item->slug}}"><strong>{{$item->title}}</strong></a>
+                                <p>{{$item->created_at}}</p>
+                                <p>{{$item->excerpt}}</p>
                             </div>
-                            <div class="border-bottom">
-                                <strong>Mahasiswa Magang</strong>
-                                <p>Lorem ipsum</p>
-                            </div>
+                        @endforeach
+
+                           
                         
                         <!-- Repeat the .news-link block for each news link -->
                     </div>

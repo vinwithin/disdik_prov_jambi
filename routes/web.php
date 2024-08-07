@@ -1,9 +1,14 @@
 <?php
 
+use App\Http\Controllers\authController;
 use App\Http\Controllers\berandaController;
 use App\Http\Controllers\beritaController;
 use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\galeriFotoController;
+use App\Http\Controllers\galeriVideoController;
 use App\Http\Controllers\pengumumanController;
+use App\Http\Controllers\produkHukumController;
+use App\Http\Controllers\profilController;
 use App\Http\Controllers\programController;
 use App\Http\Controllers\userBeritaController;
 use App\Http\Controllers\userPengumumanController;
@@ -14,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [berandaController::class, 'index']);
 Route::get('/pengumuman', [userPengumumanController::class, 'index']);
+Route::get('/prod-hukum', [berandaController::class, 'prod_hukum']);
 
 Route::get('/berita', [userBeritaController::class, 'index']);
 Route::get('/berita/detail/{berita:slug}', [userBeritaController::class, 'detail']);
@@ -27,22 +33,21 @@ Route::get('/gtk', [userProgramController::class, 'gtk']);
 Route::get('/sekretariat', [userProgramController::class, 'sekretariat']);
 
 
-Route::get('/sambutan', function() {
-    return view('pengunjung.sambutan');
-});
-Route::get('/visi-misi', function() {
-    return view('pengunjung.visimisi');
-});
+Route::get('/sambutan', [berandaController::class, 'sambutan']);
+Route::get('/visi-misi',[berandaController::class, 'visimisi']);
 Route::get('/sekretariat', function() {
     return view('pengunjung.sekretariat');
 });
 
-Route::get('/galeri-foto', function() {
-    return view('pengunjung.galeri');
-});
+Route::get('/galeri-foto',[berandaController::class, 'galeriFoto']);
 
-Route::prefix('admin')->group(function(){
-    Route::get('/', [dashboardController::class, 'index']);
+Route::get('/login',[authController::class, 'index'])->name('login');
+Route::post('/login', [authController::class, 'login']);
+Route::get('/register', [authController::class, 'tampil']);
+Route::post('/register', [authController::class, 'register']);
+
+Route::middleware('auth')->prefix('admin')->group(function(){
+    Route::get('/', [dashboardController::class, 'index'])->middleware('auth');
     Route::get('/berita' ,[beritaController::class, 'index']);
     Route::get('/berita/detail/{berita:slug}', [beritaController::class, 'detail']);
     Route::get('/berita/add-berita' ,[beritaController::class, 'addberita']);
@@ -66,6 +71,42 @@ Route::prefix('admin')->group(function(){
     Route::post('/program/edit-program/{id}' ,[programController::class, 'update']);
     // Route::get('/program/delete/{id}', [programController::class, 'destroy']);
     // Route::post('/program/add-program' ,[programController::class, 'store']);
+
+    Route::get('/profil' ,[profilController::class, 'index']);
+    Route::get('/profil/edit-profil/{profil:slug}' ,[profilController::class, 'edit']);
+    Route::get('/profil/detail/{profil:slug}', [profilController::class, 'detail']);
+    Route::get('/profil/add-profil' ,[profilController::class, 'addprofil']);
+    Route::post('/profil/edit-profil/{profil:slug}' ,[profilController::class, 'update']);
+    Route::get('/profil/delete/{profil:slug}', [profilController::class, 'destroy']);
+    Route::post('/profil/add-profil' ,[profilController::class, 'store']);
+
+    Route::get('/foto' ,[galeriFotoController::class, 'index']);
+    Route::get('/foto/edit-foto/{foto:slug}' ,[galeriFotoController::class, 'edit']);
+    Route::get('/foto/detail/{foto:slug}', [galeriFotoController::class, 'detail']);
+    Route::get('/foto/add-foto' ,[galeriFotoController::class, 'addfoto']);
+    Route::post('/foto/edit-foto/{foto:slug}' ,[galeriFotoController::class, 'update']);
+    Route::get('/foto/delete/{foto:slug}', [galeriFotoController::class, 'destroy']);
+    Route::post('/foto/add-foto' ,[galeriFotoController::class, 'store']);
+
+    Route::get('/video' ,[galeriVideoController::class, 'index']);
+    Route::get('/video/edit-video/{video:slug}' ,[galeriVideoController::class, 'edit']);
+    Route::get('/video/detail/{video:slug}', [galeriVideoController::class, 'detail']);
+    Route::get('/video/add-video' ,[galeriVideoController::class, 'addvideo']);
+    Route::post('/video/edit-video/{video:slug}' ,[galeriVideoController::class, 'update']);
+    Route::get('/video/delete/{video:slug}', [galeriVideoController::class, 'destroy']);
+    Route::post('/video/add-video' ,[galeriVideoController::class, 'store']);
+    
+    Route::get('/prod-hukum' ,[produkHukumController::class, 'index']);
+    Route::get('/prod-hukum/edit-prod-hukum/{produkhukum:slug}' ,[produkHukumController::class, 'edit']);
+    Route::get('/prod-hukum/detail/{produkhukum:slug}', [produkHukumController::class, 'detail']);
+    Route::get('/prod-hukum/add-prod-hukum' ,[produkHukumController::class, 'addprodukhukum']);
+    Route::post('/prod-hukum/edit-prod-hukum/{produkhukum:slug}' ,[produkHukumController::class, 'update']);
+    Route::get('/prod-hukum/delete/{produkhukum:slug}', [produkHukumController::class, 'destroy']);
+    Route::post('/prod-hukum/add-prod-hukum' ,[produkHukumController::class, 'store']);
+
+
+    Route::get('/logout', [authController::class, 'logout']);
+
     
 
 });

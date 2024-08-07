@@ -8,7 +8,7 @@
             background-color: #f8f9fa;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             fill: #FFF;
-            filter: drop-shadow(2px 4px 40px #143E9A);
+            filter: drop-shadow(2px 4px 10px #143E9A);
         }
 
         .content-box h1 {

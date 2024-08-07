@@ -8,6 +8,19 @@
             </a>
         </li>
         <li
+            class="sidebar-item  has-sub  {{ Request::is('admin/profil*') || Request::is('admin/profil*') ? 'active' : '' }} ">
+            <a href="#" class='sidebar-link'>
+                <i class="bi bi-stack"></i>
+                <span>Profil</span>
+            </a>
+            <ul class="submenu ">
+                <li class="submenu-item ">
+                    <a href="/admin/profil" class="submenu-link">Kelola Profil</a>
+                </li>
+            </ul>
+        </li>
+
+        <li
             class="sidebar-item  has-sub  {{ Request::is('admin/berita*') || Request::is('admin/kegiatan*') ? 'active' : '' }} ">
             <a href="#" class='sidebar-link'>
                 <i class="bi bi-stack"></i>
@@ -34,16 +47,32 @@
                 
             </ul>
         </li>
-        <li class="sidebar-item  has-sub {{ Request::is('admin/aduan*') ? 'active' : '' }}">
+        <li class="sidebar-item  has-sub {{ Request::is('admin/foto*') ? 'active' : '' }}">
             <a href="#" class='sidebar-link'>
                 <i class="bi bi-grid-1x2-fill"></i>
                 <span>Galeri</span>
             </a>
             <ul class="submenu ">
                 <li class="submenu-item  ">
-                    <a href="/admin/aduan" class="submenu-link">Daftar Aduan</a>
+                    <a href="/admin/foto" class="submenu-link">Foto</a>
 
                 </li>
+                <li class="submenu-item  ">
+                    <a href="/admin/video" class="submenu-link">Video</a>
+
+                </li>
+            </ul>
+        </li>
+        <li class="sidebar-item  has-sub {{ Request::is('admin/prod-hukum*') ? 'active' : '' }}">
+            <a href="#" class='sidebar-link'>
+                <i class="bi bi-collection-fill"></i>
+                <span>Produk Hukum</span>
+            </a>
+            <ul class="submenu ">
+                <li class="submenu-item  ">
+                    <a href="/admin/prod-hukum" class="submenu-link">Kelola Produk Hukum</a>
+                </li>
+                
             </ul>
         </li>
         <li class="sidebar-title"> Data Master</li>

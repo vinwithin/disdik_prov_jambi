@@ -16,6 +16,7 @@ class Berita extends Model
         'slug',
         'excerpt',
         'gambar',
+        'path',
         'body',
         'slide'
     ];

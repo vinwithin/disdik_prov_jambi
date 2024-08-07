@@ -8,7 +8,8 @@
             background-color: #f8f9fa;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             fill: #FFF;
-            filter: drop-shadow(2px 4px 40px #143E9A);
+            filter: drop-shadow(2px 4px 10px #143E9A);
+
         }
 
         .content-box h1 {
@@ -41,7 +42,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="#">Profil</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">BTIKP</li>
+                    <li class="breadcrumb-item active" aria-current="page">GTK</li>
                 </ol>
             </nav>
          

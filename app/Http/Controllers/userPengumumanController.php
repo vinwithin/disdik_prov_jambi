@@ -9,7 +9,7 @@ class userPengumumanController extends Controller
 {
     public function index(){
         return view('pengunjung.pengumuman', [
-            'pengumuman' => Pengumuman::all(),
+            'pengumuman' => Pengumuman::paginate(20),
         ]);
     }
 }

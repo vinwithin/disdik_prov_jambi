@@ -24,7 +24,6 @@ class pengumumanController extends Controller
             [
                 'title' => 'required',
                 'body' => 'required',
-                'gambar_pengumuman' => 'required|image|mimes:png,jpg,jpeg|max:2024',  
                 'dokumen' => 'required',            
             ]
         );
@@ -32,15 +31,12 @@ class pengumumanController extends Controller
         $validateData['slug'] = 'require|unique:pengumuman';
         $validateData["slug"] = Str::slug($request->title, '-');
         $validateData["excerpt"] = Str::limit(strip_tags($request->body), 300);
-        $image_name = time() . '_' . $request->gambar_pengumuman->getClientOriginalName();
         $dokumen_name = time() . '_' . $request->dokumen->getClientOriginalName();
         // $request->image_pengumuman->storeAs('public/media/pengumuman/thumbnails', $image_name);
-        $validateData['gambar_pengumuman'] = $image_name;
         $validateData['dokumen'] = $dokumen_name;
 
         $result = Pengumuman::create($validateData);
         
-        $request->gambar_pengumuman->storeAs('public/pengumuman', $image_name);
         $request->dokumen->storeAs('public/pengumuman', $dokumen_name);
         if ($result) {
             return redirect('/admin/pengumuman')->with('success', 'berhasil menambahkan data');
@@ -57,7 +53,6 @@ class pengumumanController extends Controller
         $validateData = $request->validate([
             'title' => 'required',
             'body' => 'required',
-            'gambar_pengumuman' => 'required|image|mimes:png,jpg,jpeg|max:2024',
             'dokumen' => 'required',            
 
             
@@ -65,15 +60,12 @@ class pengumumanController extends Controller
         $validateData["user_id"] = 1;
         $validateData["slug"] = Str::slug($request->title, '-');
         $validateData["excerpt"] =  Str::limit(strip_tags($request->body), 300);
-        $imageName = time() . '_' . $request->gambar_pengumuman->getClientOriginalName();
         $dokumen_name = time() . '_' . $request->dokumen->getClientOriginalName();
-        $validateData['gambar_pengumuman'] = $imageName;
         $validateData['dokumen'] = $dokumen_name;
 
         $result = Pengumuman::where('id', $pengumuman->id)
                   ->update($validateData);
         if ($result) {
-            $request->gambar_pengumuman->storeAs('public/pengumuman', $imageName);
             $request->dokumen->storeAs('public/pengumuman', $dokumen_name);
             return redirect('/admin/pengumuman')->with('success', 'berhasil mengubah data');
         } else {

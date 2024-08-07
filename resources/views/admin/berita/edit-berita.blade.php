@@ -7,7 +7,7 @@
     @endif
     <div class="card p-4">
         <h1 class="text-dark fs-3 mb-4">Edit Berita</h1>
-        <form action="/admin/berita/edit-berita/{{$berita->id}}" method="post" enctype="multipart/form-data">
+        <form action="/admin/berita/edit-berita/{{$berita->slug}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Judul</label>

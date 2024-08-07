@@ -53,41 +53,19 @@
                             <li class="breadcrumb-item active" aria-current="page">Struktur Organisasi</li>
                         </ol>
                     </nav>
-                    <h1 class="header-text">Sambutan Kepala Dinas</h1>
+                    <h1 class="header-text">{{$sambutan[0]->title}}</h1>
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col-md-3 text-center">
-                    <img src="/img/Frame 58.png" alt="Kepala Dinas" class="profile-image">
+                    <img src="/storage/profil/{{$sambutan[0]->image}}" alt="Kepala Dinas" class="profile-image">
                     <div class="blue-box mt-2">
                         <strong>H. SYAMSURIZAL, SE., M.Si</strong><br>
                         KEPALA DINAS
                     </div>
                 </div>
                 <div class="col-md-9 content">
-                    <h2 class="sub-header-text">Selamat Datang di Website Dinas Pendidikan Provinsi Jambi</h2>
-                    <p>Bismillahirrahmanirrahim</p>
-                    <p>Assalamualaikum, Wr. Wb</p>
-                    <p>Pertama dan utama sekali, marilah kita panjatkan puji syukur ke hadirat Allah SWT, Tuhan Yang
-                        Maha Kuasa, karena berkat rahmat dan nikmat-Nya, Dinas Pendidikan, sebagai salah satu Perangkat
-                        Daerah di Provinsi Jambi, masih bisa dan terus berupaya untuk eksis dalam mendukung terwujudnya
-                        visi Provinsi Jambi, yakni, “TERWUJUDNYA JAMBI MANTAP (MAJU, AMAN, NYAMAN, TERTIB, AMANAH DAN
-                        PROFESIONAL) DI BAWAH RIDHO ALLAH SWT”, khususnya melalui transparansi dan keterbukaan informasi
-                        publik.</p>
-                    <p>Kehadiran website ini dimaksudkan sebagai sarana publikasi untuk memberikan informasi dan
-                        gambaran, bukan saja tentang Dinas Pendidikan, tetapi juga mengenai kebijakan, program, dan
-                        kegiatan Pemerintah Provinsi Jambi. Tentunya, informasi yang disajikan tidak bertentangan dengan
-                        ketentuan peraturan perundang-undangan.</p>
-                    <p>“Beri kami data dan seuntai kata, akan kami tulis dan kabarkan jadi berita”. Itulah harapan dan
-                        tekad seluruh pegawai di Dinas Pendidikan, khususnya rekan sejawat yang mengelola website ini,
-                        untuk tetap memberikan pelayanan terbaik dalam memenuhi hak-hak masyarakat akan informasi
-                        publik, siang atau malam, pagi atau petang.</p>
-                    <p>“Tak ada gading yang tak retak, tak ada tebu yang tak beruas”, begitu kata sebuah ungkapan bijak.
-                        Oleh karena itu, kritik dan saran terhadap berbagai kekurangan yang ada sangat kami harapkan
-                        guna perbaikan yang lebih baik lagi, sehingga bukan hanya kuantitas tetapi juga kualitasnya
-                        dapat kami tingkatkan.</p>
-                    <p>Terima kasih atas kunjungannya ke laman online Dinas Pendidikan Provinsi Jambi ini. Semoga
-                        website ini memberikan manfaat bagi kita semua. Amin ya Rabbal Alamin.</p>
+                    {!! $sambutan[0]->body !!}
                 </div>
             </div>
         </div>

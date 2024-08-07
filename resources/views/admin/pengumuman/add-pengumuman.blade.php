@@ -30,16 +30,7 @@
                 <trix-editor class="trix-content" input="id1"  ></trix-editor>
             </div>
 
-            <p>Upload Foto</p>
-            <div class="input-group mb-3">
-                <input type="file"  class="form-control" id="gambar_pengumuman" name="gambar_pengumuman"  accept="image/png, image/jpeg, image/jpg" required>
-                <label class="input-group-text" for="gambar_pengumuman" >Upload</label>
-                @error('gambar')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
+            
             <p>Upload Dokumen</p>
             <div class="input-group mb-3">
                 <input type="file"  class="form-control" id="dokumen" name="dokumen"  required>

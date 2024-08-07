@@ -27,16 +27,7 @@
                 <input id="id1" type="hidden" value="{{ $pengumuman->body }}" name="body" required>
                 <trix-editor class="trix-content" input="id1"></trix-editor>
             </div>
-            <div class="input-group mb-3">
-                <input type="file" class="form-control @error('gambar_pengumuman') is-invalid @enderror" id="igambar_pengumuman"
-                    name='gambar_pengumuman' accept="image/png, image/jpeg, image/jpg" required>
-                <label class="input-group-text" for="image_berita">Upload</label>
-                @error('gambar_pengumuman')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
+            
             <div class="input-group mb-3">
                 <input type="file" class="form-control" id="dokumen" name="dokumen" accept="pdf" required>
                 <label class="input-group-text" for="dokumen">Upload</label>

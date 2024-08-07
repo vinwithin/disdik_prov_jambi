@@ -53,20 +53,15 @@
                             <li class="breadcrumb-item active" aria-current="page">Visi Misi Jambi Mantap 2024</li>
                         </ol>
                     </nav>
-                    <h1 class="header-text">Visi Misi JAMBI MANTAP 2021 - 2024</h1>
+                    <h1 class="header-text">{{$visimisi[0]->title}}</h1>
                 </div>
             </div>
             <div class="row mt-2">
                 <div class="col-md-6 text-center">
-                    <img src="/img/visimisi.png" alt="Gubernur dan Wakil Gubernur Jambi" class="profile-image" style="width: 695px; height: 447px;">
+                    <img src="/storage/profil/{{$visimisi[0]->image}}" alt="Gubernur dan Wakil Gubernur Jambi" class="profile-image" style="width: 695px; height: 447px;">
                 </div>
-                <div class="col-md-6 content">
-                    <h2 class="sub-header-text">Visi</h2>
-                    <p>Terwujudnya Jambi Maju, Aman, Nyaman, Tertib, Amanah dan Profesional dibawah Ridho ALLAH SWT.</p>
-                    <h2 class="sub-header-text">Misi</h2>
-                    <p>﻿Memantapkan Tata Kelola Pemerintahan.
-                        Memantapkan Perekonomian Masyarakat dan Daerah.
-                        Memantapkan Kualitas Sumber Daya Manusia</p>
+                <div class="col-md-6 content fs-5">
+                    {!! $visimisi[0]->body !!}
                 </div>
             </div>
         </div>
