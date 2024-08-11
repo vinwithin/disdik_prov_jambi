@@ -109,7 +109,6 @@
                                     <a href="/berita/detail/{{$item->slug}}">Baca Selengkapnya...</a>
                                 </div>
                             </div>
-
                         </div>
                     @endforeach
 

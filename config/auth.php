@@ -64,6 +64,9 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
+        'providers' => [
+            App\Providers\VisitorServiceProvider::class,
+        ]
 
         // 'users' => [
         //     'driver' => 'database',

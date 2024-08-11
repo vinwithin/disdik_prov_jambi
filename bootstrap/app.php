@@ -13,7 +13,8 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
             'auth' => Illuminate\Auth\Middleware\Authenticate::class,
-            'guest' => Illuminate\Auth\Middleware\RedirectIfAuthenticated::class
+            'guest' => Illuminate\Auth\Middleware\RedirectIfAuthenticated::class,
+            \App\Http\Middleware\TrackVisitors::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

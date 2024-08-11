@@ -38,7 +38,7 @@
     <div class="container-fluid bg-white">
         <div class="container py-5">
             <h1 class="fw-bold  text-dark ">Produk Hukum</h1>
-            <div class="input-group mt-4 mb-4">
+            <div class="input-group mt-4 mb-5">
                 <input type="text" class="form-control bg-light border-0 small" placeholder="Cari..." name="cari"
                     wire:model="cari" style="box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.50);">
                 <div class="input-group-append">
@@ -48,42 +48,55 @@
                 </div>
 
             </div>
+            @if (count($count_hukum) > 0)
             @foreach ($hukum as $item)
-                <div class="container text-dark py-5">
-                    <div class="content-box ">
-                        <h2></h2>
-                        <table class="table table-success table-striped">
-                            <thead>
-                                <tr>
-                                    <th scope="col" colspan="2">{{$item->title}}</th>
-                                    
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Tanggal Terbit</td>
-                                    <td>{{$item->terbit}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Nomor</td>
-                                    <td>{{$item->nomor}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Tentang</td>
-                                    <td>{{$item->tentang}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Dokumen</td>
-                                    <td>{{$item->tentang}}.pdf</td>
-                                </tr>
-                            </tbody>
-                        </table>
 
-                    </div>
+                <div class="container text-dark py-2 ">
+                        <div class="content-box ">
+                            <h2></h2>
+
+                            <table class="table table-success table-striped">
+
+                                <thead>
+                                    <tr>
+                                        <th scope="col" colspan="2">{{ $item->title }}</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Tanggal Terbit</td>
+                                        <td>{{ $item->terbit }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nomor</td>
+                                        <td>{{ $item->nomor }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tentang</td>
+                                        <td>{{ $item->tentang }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dokumen</td>
+
+                                        <td><a href="{{ $item->path }}">{{ $item->tentang }}.pdf</a></td>
+
+                                    </tr>
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
                 </div>
-            @endforeach
+                @endforeach
+
+            @else
+                <p class="text-center text-dark">Tidak Ada Data</p>
+            @endif
+
         </div>
-        {{ $hukum->links() }}
+
 
     </div>
     </div>

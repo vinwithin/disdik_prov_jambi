@@ -19,7 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [berandaController::class, 'index']);
 Route::get('/pengumuman', [userPengumumanController::class, 'index']);
-Route::get('/prod-hukum', [berandaController::class, 'prod_hukum']);
+// Route::get('/prod-hukum', [berandaController::class, 'prod_hukum']);
+Route::get('/prod-hukum/{category_prod_hukum:slug}', [berandaController::class, 'prod_hukum']);
 
 Route::get('/berita', [userBeritaController::class, 'index']);
 Route::get('/berita/detail/{berita:slug}', [userBeritaController::class, 'detail']);
@@ -40,6 +41,9 @@ Route::get('/sekretariat', function() {
 });
 
 Route::get('/galeri-foto',[berandaController::class, 'galeriFoto']);
+Route::get('/galeri-foto/{galerifoto:slug}',[berandaController::class, 'galeriFotoDetail']);
+Route::get('/galeri-video',[berandaController::class, 'galeriVideo']);
+Route::get('/galeri-video/{video:slug}',[berandaController::class, 'galeriVideoDetail']);
 
 Route::get('/login',[authController::class, 'index'])->name('login');
 Route::post('/login', [authController::class, 'login']);

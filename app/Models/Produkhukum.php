@@ -15,8 +15,12 @@ class Produkhukum extends Model
         'slug',
         'nomor',
         'tentang',
+        'category_prod_hukum_id',
         'dokumen',
         'path',
         'terbit'
     ];
+    public function category_prod_hukum(){
+        return $this->belongsTo(Category_prod_hukum::class);
+    }
 }

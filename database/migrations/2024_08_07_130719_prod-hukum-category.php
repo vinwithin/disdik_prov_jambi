@@ -11,19 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('produk_hukum', function (Blueprint $table) {
+        Schema::create('category_prod_hukum', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('nomor')->nullable();
+            $table->string('name');
             $table->string('slug')->unique();
-            $table->string('id_category');
-            $table->string('tentang')->nullable();
-            $table->string('category_prod_hukum_id');
-            $table->text('dokumen');
-            $table->text('path');
-            $table->date('terbit');
             $table->timestamps();
-
+            
         });
     }
 

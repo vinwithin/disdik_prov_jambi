@@ -71,11 +71,11 @@
             <div class="col-md-2">
                 <h5>Total Pengunjung</h5>
                 <ul class="list-unstyled">
-                    <li>> 4 Online</li>
-                    <li>> Hari 25 Views</li>
-                    <li>> Bulan 2773 Views</li>
-                    <li>> Total 197299 Views</li>
-                    <li>> IP 103.155.193.96</li>
+                    <li>>  {{ $onlineCount }} Online</li>
+                    <li>>> Hari {{ $dayVisitors }} Views</li>
+                    <li>>> Minggu {{ $weeklyVisitors }} Views</li>
+                    <li>>> Bulan {{ $monthlyVisitors }} Views</li>
+                    <li>>> Total {{ $visitorCount }} Views</li>
                 </ul>
             </div>
             <div class="col-md-2">

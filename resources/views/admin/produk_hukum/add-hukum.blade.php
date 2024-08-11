@@ -20,6 +20,15 @@
                     </div>
                 @enderror
             </div>
+            <div class="mb-4">
+                <label for="category_prod_hukum_id" class="form-label">Kategori</label>
+                <select class="form-select" name="category_prod_hukum_id" id="category_prod_hukum_id" required>
+                    <option value="" selected="selected" hidden="hidden">Pilih Kategori</option>
+                    @foreach ($category_prod_hukum as $item)
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    @endforeach
+                </select>
+            </div>
             <div class="mb-3">
                 <label for="nomor" class="form-label">Nomor</label>
                 <input type="text" name="nomor" class="form-control @error('nomor') is-invalid @enderror" id="nomor" required>

@@ -78,7 +78,7 @@
         <a href="#" class="text-danger"><i class="fab fa-youtube"></i></a>
     </div>
     <div class="title text-center py-4" style="margin-bottom: 90px;">
-        <h1>Galeri Foto</h1>
+        <h1>Galeri Video</h1>
     </div>
     <div class="container-fluid bg-white">
         <div class="container pb-4"
@@ -89,20 +89,18 @@
                 <nav aria-label="breadcrumb ">
                     <ol class="breadcrumb mt-2">
                         <li class="breadcrumb-item"><a href="/">Beranda</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Galeri Foto</li>
+                        <li class="breadcrumb-item active" aria-current="page">Galeri Video</li>
                     </ol>
                 </nav>
                 <div class="col-lg-8 mx-1">
                     <div class="row">
-                        @foreach ($foto as $item)
+                        @foreach ($video as $item)
                             <div class="col-lg-6">
                                 <div class="news-item">
-                                    <a href="/galeri-foto/{{$item->slug}}">
-                                        <img class=" img-fluid" src="/storage/foto/{{ $item->foto }}" alt="News Image"
-                                            style="max-height: 290px; max-width:490px; border-radius:20px; box-shadow: 2px 4px 40px 0px #143E9A; object-fit: cover">
-                                    </a>
+                                    <iframe  width="420" height="315" style="border:2px solid white; " src="{{$item->link_video}}">
+                                    </iframe>
                                     <h5 class="text-center">{{ $item->title }}</h5>
-
+                                    
                                 </div>
                                 <!-- Repeat the .news-item block for each news item -->
                             </div>
@@ -128,7 +126,7 @@
                         </div>
                     </div>
                 </div>
-                {{ $foto->links() }}
+            {{ $video->links() }}
 
             </div>
         </div>

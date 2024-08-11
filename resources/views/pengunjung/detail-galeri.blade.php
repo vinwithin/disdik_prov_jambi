@@ -85,37 +85,44 @@
             style="top:-50px; position:relative; border-radius: 20px;
             background: #FFF; ">
 
-            <div class="row text-dark" style="box-shadow: 2px 4px 40px 0px #143E9A;">
+            <div class="row justify-content-center" style="box-shadow: 2px 4px 40px 0px #143E9A;">
                 <nav aria-label="breadcrumb ">
                     <ol class="breadcrumb mt-2">
-                        <li class="breadcrumb-item"><a href="/">Beranda</a></li>
+                        <li class="breadcrumb-item"><a href="#">Beranda</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Galeri Foto</li>
                     </ol>
                 </nav>
+                <div class="news-item w-75 text-center justify-center">
+                    <img class=" img-responsive" src="/storage/foto/{{ $galerifoto->foto }}" alt="News Image"
+                        style="max-height: 600px; max-width:1290px; border-radius:20px; box-shadow: 2px 4px 40px 0px #143E9A; object-fit: cover;">
+                    <h5 class="text-center text-dark">{{ $galerifoto->title }}</h5>
+
+                </div>
                 <div class="col-lg-8 mx-1">
                     <div class="row">
                         @foreach ($foto as $item)
                             <div class="col-lg-6">
                                 <div class="news-item">
-                                    <a href="/galeri-foto/{{$item->slug}}">
+                                    <a href="/galeri-foto/{{ $item->slug }}">
                                         <img class=" img-fluid" src="/storage/foto/{{ $item->foto }}" alt="News Image"
                                             style="max-height: 290px; max-width:490px; border-radius:20px; box-shadow: 2px 4px 40px 0px #143E9A; object-fit: cover">
                                     </a>
-                                    <h5 class="text-center">{{ $item->title }}</h5>
+                                    <h5 class="text-center text-dark">{{ $item->title }}</h5>
 
                                 </div>
                                 <!-- Repeat the .news-item block for each news item -->
                             </div>
                         @endforeach
+
                     </div>
                 </div>
 
                 <div class="col-lg-3 mx-5">
                     <div class="row">
                         <div class="news-sidebar text-start px-lg-4" style="max-width: 300px;">
-                            <h5 class="fw-bold fs-3">Berita Baru</h5>
+                            <h5 class="fw-bold fs-3 text-dark">Berita Baru</h5>
                             @foreach ($beritaTerbaru as $item)
-                                <div class="col-md-6 col-lg-12 ">
+                                <div class="col-md-6 col-lg-12 text-dark ">
                                     <div class="border-bottom ">
                                         <a class="fw-bold text-dark"
                                             href="/berita/detail/{{ $item->slug }}"><strong>{{ $item->title }}</strong></a>
@@ -128,8 +135,6 @@
                         </div>
                     </div>
                 </div>
-                {{ $foto->links() }}
-
             </div>
         </div>
     </div>

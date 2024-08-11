@@ -31,8 +31,7 @@
 
             <div class="input-group mb-3">
                 <label for="link_video">Enter a video URL:</label>
-                <input type="url" id="link_video" name="link_video"   placeholder="https://example.com/video" required>
-               
+                <input type="url" id="link_video" name="link_video" value="{{$video->link_video}}">
                 @error('link_video')
                     <div class="invalid-feedback">
                         {{ $message }}

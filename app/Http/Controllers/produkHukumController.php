@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produkhukum;
+use App\Models\Category_prod_hukum;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -12,11 +13,12 @@ class produkHukumController extends Controller
     public function index(){
         return view('admin.produk_hukum.show-hukum', [
             'hukum' => Produkhukum::paginate(10),
+            
         ]);
     }
 
     public function addprodukhukum(){
-        return view('admin.produk_hukum.add-hukum');
+        return view('admin.produk_hukum.add-hukum', ['category_prod_hukum' => Category_prod_hukum::all()]);
     }
 
     public function store(Request $request){
@@ -25,6 +27,7 @@ class produkHukumController extends Controller
                 'title' => 'required',
                 'nomor' => 'required',
                 'tentang' => 'required',
+                'category_prod_hukum_id' => 'required',
                 'dokumen' => 'required|mimes:pdf|max:2048',  
                 'terbit' => 'required',
 
@@ -51,13 +54,14 @@ class produkHukumController extends Controller
 
     public function edit(Produkhukum $produkhukum){
         $hukum = Produkhukum::find($produkhukum->id);
-        return view('admin.produk_hukum.edit-hukum', ['hukum' => $hukum]);
+        return view('admin.produk_hukum.edit-hukum', ['hukum' => $hukum, 'category_prod_hukum' => Category_prod_hukum::all()]);
     }
     public function update(Request $request, Produkhukum $produkhukum){
         $validateData = $request->validate([
                 'title' => 'required',
                 'nomor' => 'required',
                 'tentang' => 'required',
+                'category_prod_hukum_id' => 'required',
                 'dokumen' => 'required|mimes:pdf|max:2048',  
                 'terbit' => 'required',           
 

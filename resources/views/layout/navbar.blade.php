@@ -35,16 +35,28 @@
                     Program
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownProgram">
-                    <li><a class="dropdown-item" href="sekretariat">SEKRETARIAT</a></li>
-                    <li><a class="dropdown-item" href="btikp">BTIKP</a></li>
-                    <li><a class="dropdown-item" href="smk">Badan Pembinaan SMK</a></li>
-                    <li><a class="dropdown-item" href="sma">Badan Pembinaan SMA</a></li>
-                    <li><a class="dropdown-item" href="pklk">Badan Pembinaan PKLK</a></li>
-                    <li><a class="dropdown-item" href="gtk">Badan Pembinaan GTK</a></li>
+                    <li><a class="dropdown-item" href="/sekretariat">SEKRETARIAT</a></li>
+                    <li><a class="dropdown-item" href="/btikp">BTIKP</a></li>
+                    <li><a class="dropdown-item" href="/smk">Badan Pembinaan SMK</a></li>
+                    <li><a class="dropdown-item" href="/sma">Badan Pembinaan SMA</a></li>
+                    <li><a class="dropdown-item" href="/pklk">Badan Pembinaan PKLK</a></li>
+                    <li><a class="dropdown-item" href="/gtk">Badan Pembinaan GTK</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProgram" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Produk Hukum
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownProgram">
+                    @foreach ($category as $item)
+                        <li><a class="dropdown-item" href="/prod-hukum/{{$item->slug}}">{{$item->name}}</a></li>
+                    @endforeach         
                 </ul>
             </li>
             <!-- Other items -->
-            <li class="nav-item"><a class="nav-link" href="/prod-hukum">Produk Hukum</a></li>
+            {{-- <li class="nav-item"><a class="nav-link" href="/prod-hukum">Produk Hukum</a></li> --}}
             <li class="nav-item"><a class="nav-link" href="#">SOP</a></li>
             <li class="nav-item"><a class="nav-link" href="#">E-Layanan</a></li>
             <li class="nav-item"><a class="nav-link" href="#">SPBE</a></li>

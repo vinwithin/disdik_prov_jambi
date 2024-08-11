@@ -169,9 +169,9 @@
 
 <body>
 
-    @include('layout/navbar')
+    @include('layout/navbar', ['category' => App\Models\Category_prod_hukum::all()])
     @yield('content')
-    @include('layout.footer')
+    @include('layout.footer', ['onlineCount' => App\Models\Visitors::onlineCount(), 'dayVisitors' => App\Models\Visitors::dayVisitor(), 'weeklyVisitors' => App\Models\Visitors::countWeekly(), 'monthlyVisitors' => App\Models\Visitors::countMonthly()])
 
 
 

@@ -88,7 +88,7 @@
             <div class="row text-dark" style="box-shadow: 2px 4px 40px 0px #143E9A;">
                 <div class="col-lg-8">
                     <div class="news-item">
-                        <img src="/storage/berita/{{$berita->gambar}}" alt="News Image" style=" max-height:620px;">
+                        <img src="/storage/berita/{{$berita->gambar}}" alt="News Image" style=" max-height:620px; object-fit: cover">
                         <h5>{{$berita->title}}</h5>
                         <div>
                             <span>{{$berita->created_at}}</span>
@@ -109,7 +109,7 @@
                         @foreach ($beritaTerbaru as $item)  
            
                             <div class="news-link" style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); padding: 0px 20px 20px 20px; ">
-                                <img src="/storage/berita/{{$item->gambar}}" alt="News Image" style=" ">
+                                <img src="/storage/berita/{{$item->gambar}}" alt="News Image" style="object-fit: cover ">
                                 <a href="/berita/detail/{{$item->slug}}" class="text-dark fs-3 fw-bold">{{$item->title}}</a>
                                 <p>{{$item->created_at}}</p>
                                 <p>{{$item->excerpt}}</p>
