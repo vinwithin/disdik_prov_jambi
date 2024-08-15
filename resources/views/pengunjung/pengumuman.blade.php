@@ -6,26 +6,7 @@
             color: #fff;
         }
 
-        .social-icons {
-            position: fixed;
-            top: 50%;
-            transform: translateY(-50%);
-            left: 0;
-        }
-
-        .social-icons a {
-            display: block;
-            padding: 10px;
-            background-color: #fff;
-            margin: 5px 0;
-            color: #000;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            text-align: center;
-            line-height: 20px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-        }
+       
 
         .news-item {
             background-color: #f8f9fa;
@@ -71,14 +52,9 @@
     </style>
 
 
-    <div class="social-icons">
-        <a href="#" class="text-primary"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="text-danger"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="text-info"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="text-danger"><i class="fab fa-youtube"></i></a>
-    </div>
+   
     <div class="title text-center py-4" style="margin-bottom: 80px;">
-        <h1>Pengumuman</h1>
+        <h1 >Pengumuman</h1>
     </div>
 
     <div class="container-fluid bg-white">
@@ -101,9 +77,10 @@
                     <div class="col-lg-6" style="border-radius: 20px;">
                         <h5 class="fs-3">{{$item->title}}</h5>
                         <div>
-                            <span>{{$item->created_at}}</span> | <span>2 min</span> | 
+                            <span>{{$item->created_at}}</span>  
                         </div>
-                        <a href="">Pratinjau Dokumen</a>
+                        <a href="/storage/pengumuman/{{$item->dokumen}}">Pratinjau Dokumen |</a>
+                        <a href="/storage/pengumuman/{{$item->dokumen}}" download>Download Dokumen</a>
                         
                         <div class="news-item">
                             {{-- <img src="/storage/pengumuman/{{ $item->gambar_pengumuman }}" alt="News Image"> --}}

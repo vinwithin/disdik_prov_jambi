@@ -6,7 +6,7 @@
             color: #fff;
         }
 
-        
+    
 
         .news-item {
             background-color: #f8f9fa;
@@ -52,44 +52,53 @@
     </style>
 
 
-    
+   
     <div class="title text-center py-4" style="margin-bottom: 90px;">
-        <h1>Galeri Video</h1>
+        <h1>Galeri Prestasi</h1>
     </div>
     <div class="container-fluid bg-white">
         <div class="container pb-4"
             style="top:-50px; position:relative; border-radius: 20px;
             background: #FFF; ">
 
-            <div class="row text-dark" style="box-shadow: 2px 4px 40px 0px #143E9A;">
+            <div class="row justify-content-center" style="box-shadow: 2px 4px 40px 0px #143E9A;">
                 <nav aria-label="breadcrumb ">
                     <ol class="breadcrumb mt-2 fw-medium">
-                        <li class="breadcrumb-item"><a href="/">Beranda</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Galeri Video</li>
+                        <li class="breadcrumb-item"><a href="#">Beranda</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Galeri Prestasi</li>
                     </ol>
                 </nav>
+                <div class="news-item w-75 text-center justify-center">
+                    <img class=" img-responsive" src="/storage/foto/{{ $galeriprestasi->foto }}" alt="News Image"
+                        style="max-height: 600px; max-width:1290px; border-radius:20px; box-shadow: 2px 4px 40px 0px #143E9A; object-fit: cover;">
+                    <h5 class="text-center text-dark">{{ $galeriprestasi->title }}</h5>
+
+                </div>
                 <div class="col-lg-8 mx-1">
                     <div class="row">
-                        @foreach ($video as $item)
+                        @foreach ($prestasi as $item)
                             <div class="col-lg-6">
                                 <div class="news-item">
-                                    <iframe  width="380" height="315" style="border:2px solid white; " src="{{$item->link_video}}">
-                                    </iframe>
-                                    <h5 class="text-center">{{ $item->title }}</h5>
-                                    
+                                    <a href="/prestasi/{{ $item->slug }}">
+                                        <img class=" img-fluid" src="/storage/foto/{{ $item->foto }}" alt="News Image"
+                                            style="max-height: 290px; max-width:490px; border-radius:20px; box-shadow: 2px 4px 40px 0px #143E9A; object-fit: cover">
+                                    </a>
+                                    <h5 class="text-center text-dark">{{ $item->title }}</h5>
+
                                 </div>
                                 <!-- Repeat the .news-item block for each news item -->
                             </div>
                         @endforeach
+
                     </div>
                 </div>
 
                 <div class="col-lg-3 mx-5">
                     <div class="row">
                         <div class="news-sidebar text-start px-lg-4" style="max-width: 300px;">
-                            <h5 class="fw-bold fs-3">Berita Baru</h5>
+                            <h5 class="fw-bold fs-3 text-dark">Berita Baru</h5>
                             @foreach ($beritaTerbaru as $item)
-                                <div class="col-md-6 col-lg-12 mb-3">
+                                <div class="col-md-6 col-lg-12 text-dark mb-3">
                                     <div class="border-bottom ">
                                         <a class="fw-bold text-dark"
                                             href="/berita/detail/{{ $item->slug }}"><strong>{{ $item->title }}</strong></a>
@@ -102,8 +111,6 @@
                         </div>
                     </div>
                 </div>
-            {{ $video->links() }}
-
             </div>
         </div>
     </div>

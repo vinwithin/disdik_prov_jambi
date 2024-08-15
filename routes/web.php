@@ -6,6 +6,8 @@ use App\Http\Controllers\beritaController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\galeriFotoController;
 use App\Http\Controllers\galeriVideoController;
+use App\Http\Controllers\instagramController;
+use App\Http\Controllers\masterController;
 use App\Http\Controllers\pengumumanController;
 use App\Http\Controllers\produkHukumController;
 use App\Http\Controllers\profilController;
@@ -36,12 +38,12 @@ Route::get('/sekretariat', [userProgramController::class, 'sekretariat']);
 
 Route::get('/sambutan', [berandaController::class, 'sambutan']);
 Route::get('/visi-misi',[berandaController::class, 'visimisi']);
-Route::get('/sekretariat', function() {
-    return view('pengunjung.sekretariat');
-});
+
 
 Route::get('/galeri-foto',[berandaController::class, 'galeriFoto']);
+Route::get('/prestasi',[berandaController::class, 'prestasi']);
 Route::get('/galeri-foto/{galerifoto:slug}',[berandaController::class, 'galeriFotoDetail']);
+Route::get('/prestasi/{galerifoto:slug}',[berandaController::class, 'prestasidetail']);
 Route::get('/galeri-video',[berandaController::class, 'galeriVideo']);
 Route::get('/galeri-video/{video:slug}',[berandaController::class, 'galeriVideoDetail']);
 
@@ -68,10 +70,17 @@ Route::middleware('auth')->prefix('admin')->group(function(){
     Route::get('/pengumuman/delete/{pengumuman:slug}', [pengumumanController::class, 'destroy']);
     Route::post('/pengumuman/add-pengumuman' ,[pengumumanController::class, 'store']);
 
+    Route::get('/master' ,[masterController::class, 'index']);
+    Route::get('/master/add-user' ,[masterController::class, 'adduser']);
+    Route::get('/master/edit-user/{id}' ,[masterController::class, 'edit']);
+    Route::post('/master/edit-user/{id}' ,[masterController::class, 'update']);
+    Route::get('/master/delete/{id}', [masterController::class, 'destroy']);
+    Route::post('/master/add-user' ,[masterController::class, 'store']);
+
     Route::get('/program' ,[programController::class, 'index']);
     Route::get('/program/edit-program/{id}' ,[programController::class, 'edit']);
-    // Route::get('/program/detail/{id}', [programController::class, 'detail']);
-    Route::get('/program/add-program' ,[programController::class, 'addprogram']);
+    Route::get('/program/detail/{id}', [programController::class, 'detail']);
+    // Route::get('/program/add-program' ,[programController::class, 'addprogram']);
     Route::post('/program/edit-program/{id}' ,[programController::class, 'update']);
     // Route::get('/program/delete/{id}', [programController::class, 'destroy']);
     // Route::post('/program/add-program' ,[programController::class, 'store']);
@@ -99,6 +108,14 @@ Route::middleware('auth')->prefix('admin')->group(function(){
     Route::post('/video/edit-video/{video:slug}' ,[galeriVideoController::class, 'update']);
     Route::get('/video/delete/{video:slug}', [galeriVideoController::class, 'destroy']);
     Route::post('/video/add-video' ,[galeriVideoController::class, 'store']);
+
+    Route::get('/instagram' ,[instagramController::class, 'index']);
+    Route::get('/instagram/edit-instagram/{instagram:slug}' ,[instagramController::class, 'edit']);
+    Route::get('/instagram/detail/{instagram:slug}', [instagramController::class, 'detail']);
+    // Route::get('/instagram/add-instagram' ,[instagramController::class, 'addinstagram']);
+    Route::post('/instagram/edit-instagram/{instagram:slug}' ,[instagramController::class, 'update']);
+    Route::get('/instagram/delete/{instagram:slug}', [instagramController::class, 'destroy']);
+    // Route::post('/instagram/add-instagram' ,[instagramController::class, 'store']);
     
     Route::get('/prod-hukum' ,[produkHukumController::class, 'index']);
     Route::get('/prod-hukum/edit-prod-hukum/{produkhukum:slug}' ,[produkHukumController::class, 'edit']);

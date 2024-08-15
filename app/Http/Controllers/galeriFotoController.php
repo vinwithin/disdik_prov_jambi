@@ -25,6 +25,7 @@ class galeriFotoController extends Controller
                 'title' => 'required',
                 'foto' => 'image|mimes:png,jpg,jpeg|max:2024',  
                 'slide' => 'required',            
+                'penghargaan' => 'required'
             ]
         );
         $validateData['slug'] = 'require|unique:foto';
@@ -53,7 +54,9 @@ class galeriFotoController extends Controller
         $validateData = $request->validate([
             'title' => 'required',
             'foto' => 'image|mimes:png,jpg,jpeg|max:2024',  
-            'slide' => 'required',            
+            'slide' => 'required',       
+            'penghargaan' => 'required'
+
 
             
         ]);

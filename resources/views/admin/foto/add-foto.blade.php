@@ -46,6 +46,21 @@
                     </label>
                   </div>
             </div>
+            <div class="mb-3">
+                <p>Pengahargaan / Prestasi</p>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="penghargaan" id="flexRadioDefault1" value="yes">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Yes
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="penghargaan" id="flexRadioDefault2" value="no" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      No
+                    </label>
+                  </div>
+            </div>
 
             <a href="/admin/foto" class="btn btn-warning mt-2">Back</a>
             <button type="submit" class="btn btn-primary mt-2">Submit</button>

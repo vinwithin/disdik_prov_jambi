@@ -62,16 +62,16 @@
             <div class="col-md-2">
                 <h5>Social Media</h5>
                 <ul class="list-unstyled social-media">
-                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-                    <li><a href="#"><i class="fab fa-youtube"></i> Youtube</a></li>
+                    <li><a href="https://id-id.facebook.com/people/Disdik-Jambi/pfbid0cYCjc6KPjaGmLUZZeL59qdZHNiLqRpLKj5xuWQbc7vZMipDkNENg8yW7RJGWJybCl/"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="https://www.instagram.com/disdikjambi/"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="https://www.youtube.com/@DisdikJambi/videos"><i class="fab fa-youtube"></i> Youtube</a></li>
                 </ul>
             </div>
             <!-- Visitor Stats -->
             <div class="col-md-2">
                 <h5>Total Pengunjung</h5>
                 <ul class="list-unstyled">
-                    <li>>  {{ $onlineCount }} Online</li>
+                    <li>>>  {{ $onlineCount }} Online</li>
                     <li>>> Hari {{ $dayVisitors }} Views</li>
                     <li>>> Minggu {{ $weeklyVisitors }} Views</li>
                     <li>>> Bulan {{ $monthlyVisitors }} Views</li>

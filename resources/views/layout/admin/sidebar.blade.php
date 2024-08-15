@@ -61,6 +61,10 @@
                     <a href="/admin/video" class="submenu-link">Video</a>
 
                 </li>
+                <li class="submenu-item  ">
+                    <a href="/admin/instagram" class="submenu-link">Instagram</a>
+
+                </li>
             </ul>
         </li>
         <li class="sidebar-item  has-sub {{ Request::is('admin/prod-hukum*') ? 'active' : '' }}">
@@ -75,7 +79,8 @@
                 
             </ul>
         </li>
-        <li class="sidebar-title"> Data Master</li>
+        <li class="sidebar-title"> 
+            <a href="/admin/master">Data Maste</a>r</li>
         <li class="sidebar-title">
             <a href="/admin/logout">Logout</a>
         </li>

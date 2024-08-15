@@ -6,26 +6,7 @@
             color: #fff;
         }
 
-        .social-icons {
-            position: fixed;
-            top: 50%;
-            transform: translateY(-50%);
-            left: 0;
-        }
-
-        .social-icons a {
-            display: block;
-            padding: 10px;
-            background-color: #fff;
-            margin: 5px 0;
-            color: #000;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            text-align: center;
-            line-height: 20px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-        }
+       
 
         .news-item {
             margin-top: 10px;
@@ -74,12 +55,7 @@
     </style>
 
 
-    <div class="social-icons">
-        <a href="#" class="text-primary"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="text-danger"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="text-info"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="text-danger"><i class="fab fa-youtube"></i></a>
-    </div>
+    
     <div class="title text-center py-4 " style="margin-bottom: 90px;">
         <h1>Berita Terkini</h1>
         <h4>Dapatkan Informasi Terkait Semua Kegiatan yang Dilakukan di Dinas Pendidikan Provinsi Jambi</h4>
@@ -94,7 +70,7 @@
                         <div class="news-item">
                             <div class="row mt-2">
                                 <div class="col-lg-4">
-                                    <img src="/storage/berita/{{ $item->gambar }}" alt="News Image" style="height: 250px">
+                                    <img src="/storage/berita/{{ $item->gambar }}" alt="News Image" style="height: 250px" style="object-fit: cover;">
                                 </div>
                                 <div class="col-lg-8" >
                                     <h5 class="fs-3">{{ $item->title }}</h5>

@@ -6,26 +6,7 @@
             color: #fff;
         }
 
-        .social-icons {
-            position: fixed;
-            top: 50%;
-            transform: translateY(-50%);
-            left: 0;
-        }
-
-        .social-icons a {
-            display: block;
-            padding: 10px;
-            background-color: #fff;
-            margin: 5px 0;
-            color: #000;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            text-align: center;
-            line-height: 20px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-        }
+    
 
         .news-item {
             background-color: #f8f9fa;
@@ -71,12 +52,7 @@
     </style>
 
 
-    <div class="social-icons">
-        <a href="#" class="text-primary"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="text-danger"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="text-info"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="text-danger"><i class="fab fa-youtube"></i></a>
-    </div>
+   
     <div class="title text-center py-4" style="margin-bottom: 90px;">
         <h1>Galeri Foto</h1>
     </div>
@@ -87,8 +63,8 @@
 
             <div class="row justify-content-center" style="box-shadow: 2px 4px 40px 0px #143E9A;">
                 <nav aria-label="breadcrumb ">
-                    <ol class="breadcrumb mt-2">
-                        <li class="breadcrumb-item"><a href="#">Beranda</a></li>
+                    <ol class="breadcrumb mt-2 fw-medium">
+                        <li class="breadcrumb-item"><a href="/">Beranda</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Galeri Foto</li>
                     </ol>
                 </nav>
@@ -105,7 +81,7 @@
                                 <div class="news-item">
                                     <a href="/galeri-foto/{{ $item->slug }}">
                                         <img class=" img-fluid" src="/storage/foto/{{ $item->foto }}" alt="News Image"
-                                            style="max-height: 290px; max-width:490px; border-radius:20px; box-shadow: 2px 4px 40px 0px #143E9A; object-fit: cover">
+                                            style="max-height: 250px; max-width:490px; border-radius:20px; box-shadow: 2px 4px 40px 0px #143E9A; object-fit: cover">
                                     </a>
                                     <h5 class="text-center text-dark">{{ $item->title }}</h5>
 
@@ -122,7 +98,7 @@
                         <div class="news-sidebar text-start px-lg-4" style="max-width: 300px;">
                             <h5 class="fw-bold fs-3 text-dark">Berita Baru</h5>
                             @foreach ($beritaTerbaru as $item)
-                                <div class="col-md-6 col-lg-12 text-dark ">
+                                <div class="col-md-6 col-lg-12 text-dark mb-3">
                                     <div class="border-bottom ">
                                         <a class="fw-bold text-dark"
                                             href="/berita/detail/{{ $item->slug }}"><strong>{{ $item->title }}</strong></a>

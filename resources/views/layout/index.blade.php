@@ -18,6 +18,26 @@
             color: white;
             font-family: "Poppins", sans-serif;
         }
+        .social-icons {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+        }
+
+        .social-icons a {
+            display: block;
+            padding: 10px;
+            background-color: #fff;
+            margin: 5px 0;
+            color: #000;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 20px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
 
         .content {
             padding: 20px;
@@ -170,6 +190,11 @@
 <body>
 
     @include('layout/navbar', ['category' => App\Models\Category_prod_hukum::all()])
+    <div class="social-icons">
+        <a href="https://id-id.facebook.com/people/Disdik-Jambi/pfbid0cYCjc6KPjaGmLUZZeL59qdZHNiLqRpLKj5xuWQbc7vZMipDkNENg8yW7RJGWJybCl/" class="text-primary"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/disdikjambi/" class="text-danger"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@DisdikJambi/videos" class="text-danger"><i class="fab fa-youtube"></i></a>
+    </div>
     @yield('content')
     @include('layout.footer', ['onlineCount' => App\Models\Visitors::onlineCount(), 'dayVisitors' => App\Models\Visitors::dayVisitor(), 'weeklyVisitors' => App\Models\Visitors::countWeekly(), 'monthlyVisitors' => App\Models\Visitors::countMonthly()])
 

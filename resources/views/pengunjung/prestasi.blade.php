@@ -54,7 +54,7 @@
 
     
     <div class="title text-center py-4" style="margin-bottom: 90px;">
-        <h1>Galeri Video</h1>
+        <h1>Prestasi</h1>
     </div>
     <div class="container-fluid bg-white">
         <div class="container pb-4"
@@ -65,18 +65,20 @@
                 <nav aria-label="breadcrumb ">
                     <ol class="breadcrumb mt-2 fw-medium">
                         <li class="breadcrumb-item"><a href="/">Beranda</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Galeri Video</li>
+                        <li class="breadcrumb-item active" aria-current="page">Galeri Foto</li>
                     </ol>
                 </nav>
                 <div class="col-lg-8 mx-1">
                     <div class="row">
-                        @foreach ($video as $item)
+                        @foreach ($prestasi as $item)
                             <div class="col-lg-6">
                                 <div class="news-item">
-                                    <iframe  width="380" height="315" style="border:2px solid white; " src="{{$item->link_video}}">
-                                    </iframe>
+                                    <a href="/prestasi/{{$item->slug}}">
+                                        <img class=" img-fluid" src="/storage/foto/{{ $item->foto }}" alt="News Image"
+                                            style="max-height: 290px; max-width:490px; border-radius:20px; box-shadow: 2px 4px 40px 0px #143E9A; object-fit: cover">
+                                    </a>
                                     <h5 class="text-center">{{ $item->title }}</h5>
-                                    
+
                                 </div>
                                 <!-- Repeat the .news-item block for each news item -->
                             </div>
@@ -102,7 +104,7 @@
                         </div>
                     </div>
                 </div>
-            {{ $video->links() }}
+                {{ $prestasi->links() }}
 
             </div>
         </div>

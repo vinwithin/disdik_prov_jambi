@@ -6,6 +6,7 @@ use App\Models\Berita;
 use App\Models\Category_prod_hukum;
 use App\Models\Galerifoto;
 use App\Models\Galerivideo;
+use App\Models\Instagram;
 use App\Models\Pengumuman;
 use App\Models\Produkhukum;
 use App\Models\Profil;
@@ -18,16 +19,21 @@ class berandaController extends Controller
     {
         $berita = Berita::where('slide', 'yes')->get();
         $foto = Galerifoto::where('slide', 'yes')->get();
+        // dd(Visitors::getWeeklyVisitors());
         return view('pengunjung.beranda', [
             'slide' => $berita->merge($foto),
             'berita' => Berita::orderBy('created_at', 'desc')->take(1)->get(),
             'beritaTerbaru' => Berita::orderBy('created_at', 'desc')->take(2)->get(),
             'pengumuman' => Pengumuman::orderBy('created_at', 'desc')->take(5)->get(),
             'pengumumanTerbaru' => Pengumuman::orderBy('created_at', 'desc')->take(1)->get(),
-            'fotoTerbaru' => Galerifoto::orderBy('created_at', 'desc')->take(10)->get(),
-            'videoTerbaru' => Galerivideo::orderBy('created_at', 'desc')->take(10)->get(),
+            'foto' => Galerifoto::orderBy('created_at', 'desc')->take(1)->get(),
+            'fotoTerbaru' => Galerifoto::orderBy('created_at', 'desc')->take(4)->get(),
+            'videoTeratas' => Galerivideo::orderBy('created_at', 'desc')->take(1)->get(),
+            'videoTerbaru' => Galerivideo::orderBy('created_at', 'desc')->take(3)->get(),
+            'instagram' => Instagram::all(),
             'onlineCount' => Visitors::onlineCount(),
             'dayVisitors' => Visitors::dayVisitor(),
+            'harian' => Visitors::getWeeklyVisitors(),
             'weeklyVisitors' => Visitors::countWeekly(),
             'monthlyVisitors' => Visitors::countMonthly(),
             'januari' => Visitors::countForMonth(1),
@@ -75,6 +81,25 @@ class berandaController extends Controller
 
         ]);
     }
+    public function prestasi()
+    {
+        return view('pengunjung.prestasi', [
+            'prestasi' => Galerifoto::where('penghargaan', 'yes')->paginate(20),
+            'beritaTerbaru' => Berita::orderBy('created_at', 'desc')->take(10)->get(),
+
+        ]);
+    }
+
+    public function prestasiDetail(Galerifoto $galerifoto)
+    {
+        return view('pengunjung.detail-prestasi', [
+            'galeriprestasi' => Galerifoto::find($galerifoto->id),
+            'prestasi' => Galerifoto::where('penghargaan', 'yes')->orderBy('created_at', 'desc')->take(6)->get(),
+            'beritaTerbaru' => Berita::orderBy('created_at', 'desc')->take(10)->get(),
+
+        ]);
+    }
+
     public function galeriVideoDetail()
     {
         return view('pengunjung.detail-video', [
