@@ -10,15 +10,22 @@
             padding: 10px;
         }
 
-        @media (min-width: 600px) {
+        @media (max-width: 720px) {
             .logo {
                 position: static;
                 top: 0px;
                 /* Removes the relative positioning */
             }
-
-            #p {
-                font-size: 10px;
+            #carouselExampleAutoplaying{
+                height: 400px;
+                object-fit: cover;
+            }
+            #judul {
+                font-size: 20px !important;
+            }
+            #video {
+                width: 300px;
+            
             }
         }
     </style>
@@ -31,7 +38,7 @@
             font-style: normal;
             font-weight: 900;
             line-height: normal;"
-            id="h1">
+            id="judul">
             DINAS PENDIDIKAN PROVINSI JAMBI</h1>
         <p class="w-75 mx-auto"
             style="color: #FFF;
@@ -42,7 +49,7 @@
             font-weight: 600;
             
             line-height: normal;"
-            id="p">
+            id="judul">
             Dengan Pendidikan Mantap Terciptanya SDM yang Unggul untuk Mewujudkan Jambi Mantap 2024</p>
 
         <div id="carouselExampleAutoplaying" class="carousel slide w-75 mx-auto m-4" data-bs-ride="carousel"
@@ -103,7 +110,8 @@
             font-style: normal;
             font-weight: 700;
             line-height: 120%; /* 46.8px */
-            letter-spacing: -2.73px;">
+            letter-spacing: -2.73px;"
+            id="judul">
             #MANTAP BEKERJA TUMBUH BERSAMA MELAYANI DENGAN PRIMA</p>
 
         <div class="search-bar w-75 mx-auto ">
@@ -224,7 +232,7 @@
         </ul>
         <div class="tab-content">
             <div id="foto" class="tab-pane fade show in active ">
-                <div class="row mt-3">
+                <div class="row mt-3 text-center">
                     @foreach ($foto as $item)
                         <div class="col-lg-7">
                             <div class="card">
@@ -257,10 +265,10 @@
                 <a href="/galeri-foto" class="btn btn-primary mt-3 mb-5 ">Lihat Foto Selengkapnya </a>
             </div>
             <div id="video" class="tab-pane ">
-                <div class="row mt-3">
+                <div class="row mt-3 text-center">
                     <div class="col-lg-9">
                         @foreach ($videoTeratas as $item)
-                            <iframe width="930" height="560" style="border:2px solid white;" allowfullscreen="true"
+                            <iframe id="video" width="930" height="560" style="border:2px solid white;" allowfullscreen="true"
                                 src="{{ $item->link_video }}" title="{{ $item->title }}">
                             </iframe>
                         @endforeach

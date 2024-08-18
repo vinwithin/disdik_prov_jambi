@@ -58,6 +58,12 @@ class berandaController extends Controller
             'sambutan' => Profil::where('title', 'Sambutan Kepala Dinas')->get(),
         ]);
     }
+    public function struktur()
+    {
+        return view('pengunjung.struktur', [
+            'struktur' => Profil::where('title', 'Struktur Organisasi')->get(),
+        ]);
+    }
     public function visimisi()
     {
         return view('pengunjung.visimisi', [

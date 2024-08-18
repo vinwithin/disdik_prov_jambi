@@ -2,7 +2,7 @@
     <ul class="menu">
         <li class="sidebar-title">Menu</li>
         <li class="sidebar-item ">
-            <a href="/admin/dashboard" class='sidebar-link'>
+            <a href="/admin" class='sidebar-link'>
                 <i class="bi bi-grid-fill"></i>
                 <span>Dashboard</span>
             </a>
@@ -21,7 +21,7 @@
         </li>
 
         <li
-            class="sidebar-item  has-sub  {{ Request::is('admin/berita*') || Request::is('admin/kegiatan*') ? 'active' : '' }} ">
+            class="sidebar-item  has-sub  {{ Request::is('admin/berita*') || Request::is('admin/pengumuman*') ? 'active' : '' }} ">
             <a href="#" class='sidebar-link'>
                 <i class="bi bi-stack"></i>
                 <span>Kelola Informasi</span>
@@ -44,10 +44,10 @@
                 <li class="submenu-item  ">
                     <a href="/admin/program" class="submenu-link">Program</a>
                 </li>
-                
+
             </ul>
         </li>
-        <li class="sidebar-item  has-sub {{ Request::is('admin/foto*') ? 'active' : '' }}">
+        <li class="sidebar-item  has-sub {{ Request::is('admin/foto*') || Request::is('admin/video*') || Request::is('admin/instagram*') ? 'active' : '' }}">
             <a href="#" class='sidebar-link'>
                 <i class="bi bi-grid-1x2-fill"></i>
                 <span>Galeri</span>
@@ -76,11 +76,14 @@
                 <li class="submenu-item  ">
                     <a href="/admin/prod-hukum" class="submenu-link">Kelola Produk Hukum</a>
                 </li>
-                
+
             </ul>
         </li>
-        <li class="sidebar-title"> 
-            <a href="/admin/master">Data Maste</a>r</li>
+        @can('view', App\Models\User::class)
+            <li class="sidebar-title ">
+                <a href="/admin/master">Data Master</a>
+            </li>
+        @endcan
         <li class="sidebar-title">
             <a href="/admin/logout">Logout</a>
         </li>

@@ -37,6 +37,7 @@ Route::get('/sekretariat', [userProgramController::class, 'sekretariat']);
 
 
 Route::get('/sambutan', [berandaController::class, 'sambutan']);
+Route::get('/struktur-organisasi', [berandaController::class, 'struktur']);
 Route::get('/visi-misi',[berandaController::class, 'visimisi']);
 
 

@@ -79,7 +79,7 @@
                 </ul>
             </div>
             <div class="col-md-2">
-                <img src="/img/Frame 151.png" alt="QR Code" style="width: 300px">
+                <img src="/img/Frame 151.png" alt="QR Code" style="max-width: 300px">
             </div>
         </div>
 

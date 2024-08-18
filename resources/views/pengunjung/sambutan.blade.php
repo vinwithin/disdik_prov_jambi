@@ -49,7 +49,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb fw-medium">
                             <li class="breadcrumb-item"><a href="/">Beranda</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Struktur Organisasi</li>
+                            <li class="breadcrumb-item active" aria-current="page">Sambutan Kepala Dinas</li>
                         </ol>
                     </nav>
                     <h1 class="header-text">{{$sambutan[0]->title}}</h1>

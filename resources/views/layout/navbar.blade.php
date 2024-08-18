@@ -30,6 +30,7 @@
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/visi-misi">Visi Misi</a></li>
                     <li><a class="dropdown-item" href="/sambutan">Sambutan</a></li>
+                    <li><a class="dropdown-item" href="/struktur-organisasi">Struktur Organisasi</a></li>
                 </ul>
             </li>
 
