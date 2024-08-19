@@ -9,7 +9,7 @@ class userPengumumanController extends Controller
 {
     public function index(){
         return view('pengunjung.pengumuman', [
-            'pengumuman' => Pengumuman::paginate(20),
+            'pengumuman' => Pengumuman::orderBy('created_at', 'desc')->paginate(20),
         ]);
     }
 }

@@ -9,7 +9,7 @@ class userBeritaController extends Controller
 {
     public function index(){
         return view('pengunjung.berita', [
-            'berita' => Berita::paginate(20),
+            'berita' => Berita::orderBy('created_at', 'desc')->paginate(20),
             'beritaTerbaru' => Berita::orderBy('created_at', 'desc')->take(5)->get(),
         ]);
     }

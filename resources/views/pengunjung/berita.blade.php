@@ -1,5 +1,6 @@
 @extends('layout.index')
 @section('content')
+@php use Carbon\Carbon; @endphp
     <style>
         .navbar-custom {
             background-color: #002d72;
@@ -75,9 +76,8 @@
                                 <div class="col-lg-8" >
                                     <h5 class="fs-3">{{ $item->title }}</h5>
                                     <div>
-                                        <span>Kategori Berita</span> | <span>8 Juli 2024</span> | <span>2 min</span> |
-                                        <span>959
-                                            Views</span>
+                                        <span>{{Carbon::parse($item->created_at)->translatedFormat('d F Y')}}</span> | <span>By {{$item->dibuat}}</span>
+                                    
                                     </div>
                                     <p>
                                         {{ $item->excerpt }}
@@ -102,7 +102,7 @@
                             <div class="news-link" style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); padding: 0px 20px 20px 20px;">
                                 <img src="/storage/berita/{{$item->gambar}}" alt="News Image">
                                 <a href="/berita/detail/{{$item->slug}}" class="text-dark fs-3 fw-bold">{{$item->title}}</a>
-                                <p>{{$item->created_at}}</p>
+                                <p>{{Carbon::parse($item->created_at)->translatedFormat('d F Y')}}</p>
                                 <p>{{$item->excerpt}}</p>
                             </div>
                         @endforeach

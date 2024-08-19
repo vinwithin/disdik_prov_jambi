@@ -1,5 +1,7 @@
 @extends('layout.index')
 @section('content')
+@php use Carbon\Carbon; @endphp
+
     <style>
         .navbar-custom {
             background-color: #002d72;
@@ -102,7 +104,7 @@
                                     <div class="border-bottom ">
                                         <a class="fw-bold text-dark"
                                             href="/berita/detail/{{ $item->slug }}"><strong>{{ $item->title }}</strong></a>
-                                        <p>{{ $item->created_at }}</p>
+                                        <p>{{ Carbon::parse($item->created_at)->translatedFormat('d F Y') }}</p>
                                         <p>{{ $item->excerpt }}</p>
                                     </div>
                                 </div>

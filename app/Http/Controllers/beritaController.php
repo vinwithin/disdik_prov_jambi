@@ -27,7 +27,8 @@ class beritaController extends Controller
                 'slide' => 'required'                
             ]
         );
-        $validateData["user_id"] = 1;
+        $validateData["user_id"] = auth()->user()->id;
+        $validateData["dibuat"] = auth()->user()->name;
         $validateData['slug'] = 'require|unique:berita';
         $validateData["slug"] = Str::slug($request->title, '-');
         $validateData["excerpt"] = Str::limit(strip_tags($request->body), 300);
@@ -59,7 +60,8 @@ class beritaController extends Controller
             'slide' => 'required' 
             
         ]);
-        $validateData["user_id"] = 1;
+        $validateData["user_id"] = auth()->user()->id;
+        $validateData["dibuat"] = auth()->user()->name;
         $validateData["slug"] = Str::slug($request->title, '-');
         $validateData["excerpt"] =  Str::limit(strip_tags($request->body), 300);
         $imageName = time() . '_' . $request->gambar->getClientOriginalName();

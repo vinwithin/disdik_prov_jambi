@@ -1,5 +1,6 @@
 @extends('layout.index')
 @section('content')
+@php use Carbon\Carbon; @endphp
     <style>
         .navbar-custom {
             background-color: #002d72;
@@ -67,7 +68,7 @@
                         <img src="/storage/berita/{{$berita->gambar}}" alt="News Image" style=" max-height:620px; object-fit: cover">
                         <h5>{{$berita->title}}</h5>
                         <div>
-                            <span>{{$berita->created_at}}</span>
+                            <span>{{Carbon::parse($berita->created_at)->translatedFormat('d F Y')}}</span>  |  <span>Oleh : {{$berita->dibuat}}</span>
                         </div>
                         <p>
                            {!! $berita->body !!}
@@ -86,8 +87,9 @@
            
                             <div class="news-link" style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); padding: 0px 20px 20px 20px; ">
                                 <img src="/storage/berita/{{$item->gambar}}" alt="News Image" style="object-fit: cover ">
-                                <a href="/berita/detail/{{$item->slug}}" class="text-dark fs-3 fw-bold">{{$item->title}}</a>
-                                <p>{{$item->created_at}}</p>
+                                <a href="/berita/detail/{{$item->slug}}" class="text-dark fs-3 fw-bold">{{$item->title}}</a><br>
+                                <span>{{Carbon::parse($item->created_at)->translatedFormat('d F Y')}}</span> | <span>By {{$item->dibuat}}</span>
+        
                                 <p>{{$item->excerpt}}</p>
                             </div>
                         @endforeach

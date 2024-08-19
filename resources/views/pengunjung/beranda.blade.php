@@ -1,5 +1,6 @@
 @extends('layout.index')
 @section('content')
+@php use Carbon\Carbon; @endphp
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         .carousel-control-prev-icon,
@@ -158,7 +159,7 @@
                                 style="max-width:960px; max-height:800px">
                             <div class="card-body m-1">
                                 <h5 class="card-title">{{ $item->title }}</h5>
-                                <p class="card-text"><small class="text-muted">{{ $item->created_at }}</small></p>
+                                <p class="card-text"><small class="text-muted">{{Carbon::parse($item->created_at)->translatedFormat('d F Y')}}</small></p>
                                 <p class="card-text">{{ $item->excerpt }}</p>
                                 <a href="/berita/detail/{{ $item->slug }}" class="btn btn-primary">Baca
                                     Selengkapnya...</a>
@@ -173,7 +174,7 @@
                                 style="height: 253px; object-fit:cover;">
                             <div class="card-body m-3">
                                 <h5 class="card-title">{{ $item->title }}</h5>
-                                <p class="card-text"><small class="text-muted">{{ $item->created_at }}</small></p>
+                                <p class="card-text"><small class="text-muted">{{Carbon::parse($item->created_at)->translatedFormat('d F Y')}}</small></p>
                                 {{-- <p class="card-text">{{ $item->excerpt }}</p> --}}
                                 <a href="/berita/detail/{{ $item->slug }}" class="btn btn-primary">Baca
                                     Selengkapnya...</a>
@@ -193,8 +194,8 @@
                         <div class="announcement">
                             <h5>{{ $item->title }}</h5>
                             <div class="date-time">
-                                <i class="far fa-calendar-alt"></i> {{ $item->created_at }}
-                                13:14:14
+                                <i class="far fa-calendar-alt"></i> {{Carbon::parse($item->created_at)->translatedFormat('d F Y')}}
+                
                             </div>
                         </div>
                     @endforeach

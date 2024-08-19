@@ -18,7 +18,8 @@ class Berita extends Model
         'gambar',
         'path',
         'body',
-        'slide'
+        'slide',
+        'dibuat'
     ];
    
     public function admin(){
