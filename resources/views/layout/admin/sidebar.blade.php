@@ -12,7 +12,7 @@
             <a href="#" class='sidebar-link'>
                 <i class="bi bi-stack"></i>
                 <span>Profil</span>
-            </a>
+            </a>p 
             <ul class="submenu ">
                 <li class="submenu-item ">
                     <a href="/admin/profil" class="submenu-link">Kelola Profil</a>
