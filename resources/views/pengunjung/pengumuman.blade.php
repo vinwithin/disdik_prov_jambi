@@ -1,5 +1,7 @@
 @extends('layout.index')
 @section('content')
+@php use Carbon\Carbon; @endphp
+
     <style>
         .navbar-custom {
             background-color: #002d72;
@@ -77,7 +79,7 @@
                     <div class="col-lg-6" style="border-radius: 20px;">
                         <h5 class="fs-3">{{$item->title}}</h5>
                         <div>
-                            <span>{{$item->created_at}}</span>  
+                            <span>{{Carbon::parse($item->created_at)->translatedFormat('d F Y')}}</span>  
                         </div>
                         <a href="/storage/pengumuman/{{$item->dokumen}}">Pratinjau Dokumen |</a>
                         <a href="/storage/pengumuman/{{$item->dokumen}}" download>Download Dokumen</a>
